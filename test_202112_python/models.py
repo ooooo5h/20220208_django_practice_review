@@ -28,7 +28,19 @@ class Lectures(models.Model):
     max_count = models.IntegerField()
     fee = models.IntegerField()
     campus = models.CharField(max_length=50, blank=True, null=True)
-
+    
+    # DB조회한 결과를 dict형태로 변환해주는 함수 추가
+    def get_data_object(self):
+        
+        data = {
+            'name' : self.name,
+            'max_count' : self.max_count,
+            'fee' : self.fee,
+            'campus' : self.campus,
+        }
+        return data
+    
+    
     class Meta:
         managed = False
         db_table = 'lectures'
