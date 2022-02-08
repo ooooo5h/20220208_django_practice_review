@@ -9,11 +9,18 @@ class Lecture(View):
                 
         search_lecture = Lectures.objects.filter(name=request.GET['name']).first()
         
-        
-        return JsonResponse({
-            'code' : 200,
-            'message' : '특정 강의 내려주기',
-            'data' : {
-                'lecture' : search_lecture.get_data_object()
-            }
-        })
+        if search_lecture :
+            
+            return JsonResponse({
+                'code' : 200,
+                'message' : '특정 강의 내려주기',
+                'data' : {
+                    'lecture' : search_lecture.get_data_object()
+                }
+            })
+        else :
+            
+            return JsonResponse({
+                'code' : 400,
+                'message' : '존재하지 않는 강의명입니다.'
+            }, status=400)
