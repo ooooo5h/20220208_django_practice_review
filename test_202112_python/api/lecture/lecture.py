@@ -1,5 +1,5 @@
 from django.views import View
-from django.http import HttpResponse
+from django.http import JsonResponse
 from test_202112_python.models import Lectures
 
 class Lecture(View):
@@ -10,7 +10,7 @@ class Lecture(View):
         search_lecture = Lectures.objects.filter(name=request.GET['name']).first()
         
         
-        return HttpResponse({
+        return JsonResponse({
             'code' : 200,
             'message' : '특정 강의 내려주기',
             'data' : {
