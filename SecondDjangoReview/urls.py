@@ -21,5 +21,5 @@ from test_202112_python.api.lecture import Lecture
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', test_home, name='test'),
-    path('lecture/', Lecture.as_view(), name='lecture'),
+    path('lecture', Lecture.as_view(), name='lecture'),
 ]
