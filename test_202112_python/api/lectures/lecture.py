@@ -14,6 +14,6 @@ class Lecture(View):
             'code' : 200,
             'message' : '특정 강의 내려주기',
             'data' : {
-                'lecture' : search_lecture.
+                'lecture' : search_lecture.get_data_object()
             }
         })
